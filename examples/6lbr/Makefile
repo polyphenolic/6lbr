@@ -93,7 +93,7 @@ ifeq ($(TARGET),econotag)
 PROJECT_SOURCEFILES += econotag-init.c econotag-nvm.c enc28j60.c enc28j60-drv.c
 endif
 ifeq ($(TARGET),cc2538dk)
-PROJECT_SOURCEFILES += cc2538dk-init.c cc2538dk-nvm.c enc28j60.c enc28j60-drv.c
+PROJECT_SOURCEFILES += cc2538dk-init.c cc2538dk-nvm.c enc28j60.c enc28j60-drv.c enc28j60-arch.c
 endif
 endif
 
