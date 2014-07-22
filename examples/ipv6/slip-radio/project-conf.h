@@ -55,6 +55,8 @@
 #define CMD_CONF_HANDLERS slip_radio_cmd_handler,cmd_handler_rf230
 #elif CONTIKI_TARGET_ECONOTAG
 #define CMD_CONF_HANDLERS slip_radio_cmd_handler,cmd_handler_mc1322x
+#elif CONTIKI_TARGET_MBXXX
+#define CMD_CONF_HANDLERS slip_radio_cmd_handler,cmd_handler_stm32w
 #else
 #define CMD_CONF_HANDLERS slip_radio_cmd_handler
 #endif
