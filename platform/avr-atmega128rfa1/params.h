@@ -60,7 +60,7 @@ extern uint8_t eemem_domain_name[30];
 #ifdef IEEE802154_PANID
 #define PARAMS_PANID IEEE802154_PANID
 #else
-#define PARAMS_PANID 0xABCD
+#define PARAMS_PANID 0x1234
 #endif
 #ifdef IEEE802154_PANADDR
 #define PARAMS_PANADDR IEEE802154_PANADDR

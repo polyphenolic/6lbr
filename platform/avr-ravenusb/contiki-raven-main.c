@@ -229,7 +229,7 @@ const uint8_t default_channel PROGMEM = 26;
 #ifdef IEEE802154_PANID
 const uint16_t default_panid PROGMEM = IEEE802154_PANID;
 #else
-const uint16_t default_panid PROGMEM = 0xABCD;
+const uint16_t default_panid PROGMEM = 0x1234;
 #endif
 #ifdef IEEE802154_PANADDR
 const uint16_t default_panaddr PROGMEM = IEEE802154_PANID;
@@ -275,7 +275,7 @@ uint8_t eemem_channel[2] EMEM = {26, ~26};
 #ifdef IEEE802154_PANID
 uint16_t eemem_panid EEMEM = IEEE802154_PANID;
 #else
-uint16_t eemem_panid EEMEM = 0xABCD;
+uint16_t eemem_panid EEMEM = 0x1234;
 #endif
 #ifdef IEEE802154_PANADDR
 uint16_t eemem_panaddr EEMEM = IEEE802154_PANADDR;

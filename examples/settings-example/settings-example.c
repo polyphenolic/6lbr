@@ -60,7 +60,7 @@ PROCESS_THREAD(settings_example_process, ev, data)
   /*************************************************************************/
   /* Basic setting of parameters */
 
-  status = settings_set_uint16(SETTINGS_KEY_PAN_ID, 0xABCD);
+  status = settings_set_uint16(SETTINGS_KEY_PAN_ID, 0x1234);
   if(SETTINGS_STATUS_OK != status) {
     printf("settings-example: `set` failed: %d\n", status);
   }
@@ -79,7 +79,7 @@ PROCESS_THREAD(settings_example_process, ev, data)
   /* Basic getting of parameters */
 
   panid = settings_get_uint16(SETTINGS_KEY_PAN_ID, 0);
-  if(0xABCD != panid) {
+  if(0x1234 != panid) {
     printf("settings-example: `get` failed: value mismatch.\n");
   }
 

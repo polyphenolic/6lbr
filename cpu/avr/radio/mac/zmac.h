@@ -86,8 +86,8 @@
  *  \name Pre-defined network addresses
  *  @{
  */
-#define DEST_PAN_ID     (0xABCD)
-#define SOURCE_PAN_ID   (0xABCD)
+#define DEST_PAN_ID     (0x1234)
+#define SOURCE_PAN_ID   (0x1234)
 #define LONG_ADDR_1     (0xFFEEDDCCBBAA1100LL)
 #define LONG_ADDR_2     (0x1122334455667788LL)
 #define LONG_ADDR_3     (0xDDEEAADDBBEEEEFFLL)
