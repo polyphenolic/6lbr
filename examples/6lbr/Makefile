@@ -340,9 +340,9 @@ rpi_deb:
 	cp -R control-deb $(DEB)/DEBIAN
 	mkdir -p $(DEB)/usr/lib/6lbr/bin
 	cp bin/* $(DEB)/usr/lib/6lbr/bin
-ifneq ($(PLUGINS_FILES),)
-	cp $(PLUGINS_FILES) $(DEB)/usr/lib/6lbr/plugins
-endif
+#ifneq ($(PLUGINS_FILES),)
+#	cp $(PLUGINS_FILES) $(DEB)/usr/lib/6lbr/plugins
+#endif
 	cp tools/nvm_tool $(DEB)/usr/lib/6lbr/bin
 	dpkg --build $(DEB) .
 
