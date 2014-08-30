@@ -135,7 +135,7 @@ cetic_6lbr_set_prefix(uip_ipaddr_t * prefix, unsigned len,
     LOG6LBR_DEBUG("Ignoring RA\n");
     return;
   }
-  LOG6LBR_INFO("CETIC_BRIDGE : set_prefix\n");
+  //LOG6LBR_INFO("CETIC_BRIDGE : set_prefix\n");
 
   uip_ipaddr_copy(&wsn_ip_addr, ipaddr);
 

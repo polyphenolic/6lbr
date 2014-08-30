@@ -39,6 +39,16 @@
 
 #include "conf-mapping.h"
 
+#ifdef IEEE802154_CONF_PANID
+#undef IEEE802154_CONF_PANID
+#endif
+#define IEEE802154_CONF_PANID 0xABCD
+
+#ifdef RF_CHANNEL
+#undef RF_CHANNEL
+#endif
+#define RF_CHANNEL 26
+
 /*------------------------------------------------------------------*/
 /* Mode selection                                                   */
 /*------------------------------------------------------------------*/
@@ -239,7 +249,7 @@
 #undef UIP_CONF_TCP_MSS
 
 #undef NETSTACK_CONF_MAC
-#define NETSTACK_CONF_MAC     csma_driver
+#define NETSTACK_CONF_MAC     nullmac_driver
 
 #define CETIC_CSMA_STATS      1
 

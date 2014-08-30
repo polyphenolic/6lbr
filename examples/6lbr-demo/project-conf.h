@@ -41,13 +41,15 @@
 /* Radio                                                                     */
 /*---------------------------------------------------------------------------*/
 
-#ifndef IEEE802154_CONF_PANID
+#ifdef IEEE802154_CONF_PANID
+#undef IEEE802154_CONF_PANID
+#endif
 #define IEEE802154_CONF_PANID 0xABCD
-#endif
 
-#ifndef RF_CHANNEL
-#define RF_CHANNEL 26
+#ifdef RF_CHANNEL
+#undef RF_CHANNEL
 #endif
+#define RF_CHANNEL 26
 
 #define CC2538_RF_CONF_CHANNEL RF_CHANNEL
 
@@ -58,7 +60,7 @@
 #define COAP_SERVER_PORT 5683
 
 /* Unless compiling in LARGE mode, only a few resources can be enabled at a time */
-#if defined CONTIKI_TARGET_SKY || (defined CONTIKI_TARGET_Z1 && ! MSP430_20BITS)
+#if 1 || defined CONTIKI_TARGET_SKY || (defined CONTIKI_TARGET_Z1 && ! MSP430_20BITS)
 
 #define REST_CONF_RES_BATTERY 1
 #define REST_CONF_RES_BATTERY_PERIODIC 0
@@ -185,7 +187,7 @@
 /*---------------------------------------------------------------------------*/
 
 #undef NETSTACK_CONF_MAC
-#define NETSTACK_CONF_MAC     		csma_driver
+#define NETSTACK_CONF_MAC     		nullmac_driver
 
 #undef NETSTACK_CONF_RDC
 #define NETSTACK_CONF_RDC     		nullrdc_driver
@@ -213,7 +215,7 @@
 
 /* Z1 platform has limited RAM */
 
-#if defined CONTIKI_TARGET_Z1
+#if 1
 
 #define RPL_CONF_MAX_PARENTS_PER_DAG    12
 #define NEIGHBOR_CONF_MAX_NEIGHBORS     12
@@ -271,7 +273,7 @@
 
 #define FLASH_CCA_CONF_BOOTLDR_BACKDOOR_PORT_A_PIN 7
 
-#if defined CONTIKI_TARGET_SKY || (defined CONTIKI_TARGET_Z1 && ! MSP430_20BITS)
+#if 1
 
 #undef REST_CONF_RES_LED_R
 #define REST_CONF_RES_LED_R 0
