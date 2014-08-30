@@ -3,20 +3,16 @@ CONTIKI_CPU_DIRS = . net dev
 CONTIKI_SOURCEFILES += mtarch.c rtimer-arch.c elfloader-stub.c watchdog.c eeprom.c
 
 ### Compiler definitions
-CC       ?= gcc
-ifdef LD_OVERRIDE
-  LD     = $(LD_OVERRIDE)
-else
-  LD     = gcc
-endif
-AS       ?= as
-NM       ?= nm
-OBJCOPY  ?= objcopy
-STRIP    ?= strip
+CC        = arm-linux-gnueabihf-gcc --sysroot=/home/raspberrypi/rootfs
+LD        = arm-linux-gnueabihf-gcc --sysroot=/home/raspberrypi/rootfs
+AS        = arm-linux-gnueabihf-as
+NM        = arm-linux-gnueabihf-nm
+OBJCOPY   = arm-linux-gnueabihf-objcopy
+STRIP     = arm-linux-gnueabihf-strip
 ifdef WERROR
 CFLAGSWERROR=-Werror -pedantic -std=c99 -Werror
 endif
-CFLAGSNO = -Wall -g -I/usr/local/include $(CFLAGSWERROR)
+CFLAGSNO = -Wall -g $(CFLAGSWERROR)
 CFLAGS  += $(CFLAGSNO) -O
 
 ifeq ($(HOST_OS),Darwin)
