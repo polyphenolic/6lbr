@@ -8,9 +8,9 @@ WITH_RPL?=1
 # Applications 
 
 WITH_SHELL?=0
-WITH_UDPCLIENT?=1
+WITH_UDPCLIENT?=0
 WITH_WEBSERVER?=0
-WITH_COAPSERVER?=0
+WITH_COAPSERVER?=1
 WITH_TINYDTLS?=0
 WITH_DTLSECHO?=0
 WITH_DTLS_COAP?=0
@@ -70,6 +70,7 @@ endif
 
 ifneq ($(WITH_COAPSERVER),0)
 WITH_COAP=13
+CFLAGS += -fpack-struct=1
 CFLAGS += -DWITH_COAP=13
 CFLAGS += -DREST=coap_rest_implementation
 ifneq ($(TARGET),native)
@@ -137,6 +138,7 @@ endif
 
 all_sky: bin_sky/6lbr-demo-webserver.sky bin_sky/6lbr-demo-coapserver.sky
 all_z1: bin_z1/6lbr-demo-coapserver.z1
+all_mbxxx: bin_mbxxx/6lbr-demo-coapserver.mbxxx
 all_econotag: bin_econotag/6lbr-demo-coapserver.econotag
 all_cc2538dk: bin_cc2538dk/6lbr-demo-coapserver.cc2538dk bin_cc2538dk/6lbr-demo-dtls-coapserver.cc2538dk
 
@@ -157,6 +159,12 @@ bin_z1/6lbr-demo-coapserver.z1:
 	$(MAKE) TARGET=z1 clean
 	$(MAKE) TARGET=z1 MSP430_20BITS=0 WITH_UDPCLIENT=0 WITH_COAPSERVER=1 RF_CHANNEL=$(RF_CHANNEL)
 	cp 6lbr-demo.z1 bin_z1/6lbr-demo-coapserver.z1
+
+bin_mbxxx/6lbr-demo-coapserver.mbxxx:
+	mkdir -p bin_mbxxx
+	$(MAKE) TARGET=mbxxx STM32W_CPUREV=xB clean
+	$(MAKE) TARGET=mbxxx STM32W_CPUREV=xB WITH_UDPCLIENT=1 WITH_COAPSERVER=0 RF_CHANNEL=$(RF_CHANNEL)
+	cp 6lbr-demo.mbxxx bin_mbxxx/6lbr-demo-coapserver.mbxxx
 
 bin_econotag/6lbr-demo-coapserver.econotag:
 	mkdir -p bin_econotag

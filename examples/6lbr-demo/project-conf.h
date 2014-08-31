@@ -53,6 +53,8 @@
 
 #define CC2538_RF_CONF_CHANNEL RF_CHANNEL
 
+#define UIP_CONF_TCP 0 // YOLO we don't need this since we're using CoAP :)
+
 /*---------------------------------------------------------------------------*/
 /* COAP                                                                      */
 /*---------------------------------------------------------------------------*/
@@ -157,16 +159,18 @@
 /* UIP Buffers                                                               */
 /*---------------------------------------------------------------------------*/
 
-#if !UIP_CONF_IPV6_RPL
+#define UIP_CONF_IPV6_RPL 1
+
+//#if !UIP_CONF_IPV6_RPL
 #undef UIP_CONF_ROUTER
 #define UIP_CONF_ROUTER            0
-#endif
+//#endif
 
 #undef QUEUEBUF_CONF_NUM
 #define QUEUEBUF_CONF_NUM          5
 
 #undef UIP_CONF_BUFFER_SIZE
-#define UIP_CONF_BUFFER_SIZE    260
+#define UIP_CONF_BUFFER_SIZE    200
 
 #undef UIP_CONF_RECEIVE_WINDOW
 #define UIP_CONF_RECEIVE_WINDOW  60
@@ -217,18 +221,18 @@
 
 #if 1
 
-#define RPL_CONF_MAX_PARENTS_PER_DAG    12
-#define NEIGHBOR_CONF_MAX_NEIGHBORS     12
+#define RPL_CONF_MAX_PARENTS_PER_DAG    5
+#define NEIGHBOR_CONF_MAX_NEIGHBORS     5
 
 #undef UIP_CONF_DS6_NBR_NBU
-#define UIP_CONF_DS6_NBR_NBU     12
+#define UIP_CONF_DS6_NBR_NBU     5
 
 //Deprecated, for old DS6 Route API, use UIP_CONF_MAX_ROUTES instead
 #undef UIP_CONF_DS6_ROUTE_NBU
-#define UIP_CONF_DS6_ROUTE_NBU   12
+#define UIP_CONF_DS6_ROUTE_NBU   5
 
 #undef UIP_CONF_MAX_ROUTES
-#define UIP_CONF_MAX_ROUTES   12
+#define UIP_CONF_MAX_ROUTES   5
 
 #else
 
